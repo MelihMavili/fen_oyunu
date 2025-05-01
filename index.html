@@ -283,7 +283,7 @@
             const value = board[y][x];
             if (value) {
               const img = document.createElement("img");
-              img.src = `images/${value.toLowerCase()}.png`; // örnek: hücre.png
+              img.src = `images/${value.toLowerCase().replace("ü", "u")}.png`;// örnek: hücre.png
               img.alt = value;
               img.style.width = "100%";
               img.style.height = "100%";
