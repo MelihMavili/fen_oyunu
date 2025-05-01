@@ -279,13 +279,22 @@
           for (let x = 0; x < boardSize; x++) {
             const cell = document.createElement("div");
             cell.classList.add("cell");
-            cell.textContent = board[y][x];
+
+            const value = board[y][x];
+            if (value) {
+              const img = document.createElement("img");
+              img.src = `images/${value.toLowerCase()}.png`; // örnek: hücre.png
+              img.alt = value;
+              img.style.width = "100%";
+              img.style.height = "100%";
+              cell.appendChild(img);
+            }
+
             cell.addEventListener("click", () => placeItem(x));
             boardElement.appendChild(cell);
           }
         }
       }
-
       function placeItem(x) {
         for (let y = boardSize - 1; y >= 0; y--) {
           if (board[y][x] === "") {
